@@ -66,7 +66,9 @@ npx wrangler deploy     # 初めてのデプロイ
 ```
 
 次に、GitHubに`shu7-nihongo`という名前でPublicリポジトリを作成し、プッシュ。
-(詳細な手順は省略)
+(詳細な手順は省略)  
+また、GitHubダッシュボードで  
+**Settings > Actions > General > Workflow permissions を「Read and write permissions」にしておくこと**。
 
 最後に、ダッシュボードから以下の設定を行う。
 ```yaml

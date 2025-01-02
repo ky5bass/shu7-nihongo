@@ -26,7 +26,7 @@ jobs:
           git commit -m "chore: update build-trigger file (by GitHub Actions)"
           git push
         # 注 GitHubダッシュボードで Settings > Actions > General > Workflow permissions を
-        #    Read and write permissions にしてかないと、Permission denied されてしまう。
+        #    Read and write permissions にしておかないと、Permission denied されてしまう。
         #    参考 https://stackoverflow.com/questions/72851548/permission-denied-to-github-actionsbot#answer-75308228
         # 注 リモートリポジトリはPublicにしておくこと。Publicである限り、GitHub Actionsは何回実行しても無料。
         #    参考 https://docs.github.com/ja/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions
