@@ -64,7 +64,7 @@ vi wrangler.toml
 # # カスタムドメイン
 # # 参考 https://developers.cloudflare.com/workers/configuration/routing/custom-domains/
 # routes = [
-#   { pattern = "shop.example.com", custom_domain = true }
+#   { pattern = "shu7-nihongo.com", custom_domain = true }
 # ]
 
 npx wrangler deploy     # 初めてのデプロイ
