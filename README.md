@@ -15,7 +15,7 @@ npm create cloudflare@latest        # Workersプロジェクトを作成
 #   Do you want to deploy your application?                     -> No
 cd shu7-nihongo
 
-vi wrangler.toml    # wrangler.tomlに追記
+vi wrangler.toml
 # ↓を追記
 # # Workers Site
 # # 参考 https://developers.cloudflare.com/workers/configuration/sites/start-from-worker/
@@ -34,7 +34,7 @@ cp -r $SH7N_DEV_CONFIG/.github \
       $SH7N_DEV_CONFIG/main.py \
       $SH7N_DEV_CONFIG/requirements.txt .
 cp -f $SH7N_DEV_CONFIG/src/index.ts src/index.ts
-vi .github/workflows/daily-build-trigger.yml  # ファイル編集
+vi .github/workflows/daily-build-trigger.yml
 # ↓のように変更
 # -  # # 定期実行
 # -  # # 参考 https://qiita.com/cardene/items/67d31f13d27865a12ecf#設定
@@ -49,7 +49,7 @@ vi .github/workflows/daily-build-trigger.yml  # ファイル編集
 # +  #    参考 https://zenn.dev/no4_dev/articles/14b295b8dafbfd
 # +  schedule:
 # +    - cron: '0 21 * * *'  # 日本時間AM6:00
-vi .gitignore     # ファイル編集
+vi .gitignore
 # ↓を追記
 # # --------------------↓以降、自分で追加↓--------------------
 # 
@@ -59,6 +59,13 @@ sed -i '' s/.dev.1//g Makefile      # Makefile内で".dev.1"を除去(""に置�
 # 注 ↑はmacOSにおいてのみ有効(macOSのsedはBSD版であるため)。
 #    Linux等のGNU版sedでは `sed -i s/.dev.1//g Makefile` らしい。
 #    参考 https://qiita.com/catfist/items/1156ae0c7875f61417ee
+vi wrangler.toml
+# ↓を上のほうに追記
+# # カスタムドメイン
+# # 参考 https://developers.cloudflare.com/workers/configuration/routing/custom-domains/
+# routes = [
+#   { pattern = "shop.example.com", custom_domain = true }
+# ]
 
 npx wrangler deploy     # 初めてのデプロイ
                         # (手早くリモート上にプロジェクトを作成するために一度だけ実行。

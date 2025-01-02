@@ -4,6 +4,12 @@ main = "src/index.ts"
 compatibility_date = "2024-12-30"
 compatibility_flags = ["nodejs_compat"]
 
+# カスタムドメイン
+# 参考 https://developers.cloudflare.com/workers/configuration/routing/custom-domains/
+routes = [
+  { pattern = "shop.example.com", custom_domain = true }
+]
+
 # Workers Logs
 # Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
 # Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
