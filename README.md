@@ -65,7 +65,7 @@ npx wrangler deploy     # 初めてのデプロイ
                         #  以降はこのようなローカルからのデプロイはしない)
 ```
 
-次に、GitHubに`shu7-nihongo`という名前でPublicリポジトリを作成し、プッシュ。
+次に、GitHubに`shu7-nihongo`という名前で**Publicリポジトリ**を作成し、プッシュ。
 (詳細な手順は省略)  
 また、GitHubダッシュボードで  
 **Settings > Actions > General > Workflow permissions を「Read and write permissions」にしておくこと**。
