@@ -7,6 +7,8 @@ from os import environ
 from datetime import timedelta
 from datetime import datetime as _datetime
 
+lst_daySymbols = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+
 obj_distDirPath = Path(__file__).parent / 'public'  # 注 このディレクトリの中身は空であるものとして以下進める
 obj_srcDirPath  = Path(__file__).parent / 'static'
 obj_tplDirPath  = Path(__file__).parent / 'templates'
@@ -34,8 +36,11 @@ def main():
     shutil.copytree(obj_srcDirPath, obj_distDirPath / obj_srcDirPath.name)
 
     # 出力先ディレクトリ内にbunchディレクトリを作成
-    obj_distBunchDirPath = obj_distDirPath / 'bunch'
-    obj_distBunchDirPath.mkdir()
+    obj_targetDirPath = obj_distDirPath / 'bunch'
+    obj_targetDirPath.mkdir()
+    for str_daySymbol in lst_daySymbols:
+        obj_targetDirPath = obj_distDirPath / f'bunch/{str_daySymbol}'
+        obj_targetDirPath.mkdir()
 
     # supabaseクライアントを用意
     obj_supabaseClient = create_client(str_supabaseUrl, str_supabaseKey)
@@ -61,7 +66,6 @@ def main():
     obj_now = _datetime.now() + timedelta(hours=+9)
     # 注 9時間後にすることで日本時間に変換
     int_todayNo = obj_now.weekday()     # 月曜=>0, ..., 日曜=>6
-    lst_daySymbols = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
     str_todaySymbol = lst_daySymbols[int_todayNo]
 
     # トップページをレンダリング
@@ -102,7 +106,7 @@ def main():
             created_date=str_date,
             this_day_symbol=str_daySymbol,
             cwd='/bunch',)
-        obj_outputPath = obj_distDirPath / f'bunch/{str_daySymbol}.html'
+        obj_outputPath = obj_distDirPath / f'bunch/{str_daySymbol}/index.html'
         with obj_outputPath.open('wt') as f:
             f.write(str_output)
 

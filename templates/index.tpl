@@ -8,7 +8,7 @@
       <p class="text-center fs-5 py-2">曜日ごとに違ったカードの束（Bunch）を用意しています。各曜日の午前6時になると、自動で内容が更新されます。</p>
       <p class="text-center fs-5 py-2">よく知っているような言葉でも、簡単な文章で説明するのは難しいということがあります。週7日本語を使って、身近な言葉から難解な言葉まで幅広い語彙力を手に入れましょう！</p>
       <div class="d-grid col-9 col-sm-7 col-lg-6 col-xl-5 mx-auto py-2">
-        {% set today_bunch_abs_path = '/bunch/' ~ today_symbol ~ '.html' %} {# 引数absoluteとして渡す変数today_bunch_abs_pathを設定 #}
+        {% set today_bunch_abs_path = '/bunch/' ~ today_symbol %} {# 引数absoluteとして渡す変数today_bunch_abs_pathを設定 #}
         <a class="btn btn-secondary align-baseline fs-2 px-2 rounded-4" href="{{ relative_path(absolute=today_bunch_abs_path, cwd=cwd) }}" style="font-family: 'YakuHanMPs', 'Noto Serif JP', serif; font-weight: 900;">
           本日の束へ
           <i class="bi bi-rocket-takeoff-fill"></i>
