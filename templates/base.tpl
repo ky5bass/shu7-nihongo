@@ -17,7 +17,7 @@
   <header class="sticky-top">
     <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{{ relative_path(absolute='/index.html', cwd=cwd) }}">
+        <a class="navbar-brand" href="{{ relative_path(absolute='/', cwd=cwd) }}">
           <img src="{{ relative_path(absolute='/static/img/logo.svg', cwd=cwd) }}" width="200" alt="週7日本語 ロゴ">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav pt-2">
             {% for day_symbol, day in days.items() %}
-            {% set bunch_abs_path = '/bunch/' ~ day_symbol ~ '.html' %} {# 引数absoluteに渡す変数bunch_abs_pathを設定 #}
+            {% set bunch_abs_path = '/bunch/' ~ day_symbol %} {# 引数absoluteに渡す変数bunch_abs_pathを設定 #}
             {# 注 `~`で文字列や数値を結合できる  #}
             <li class="nav-item light" style="font-weight: 700;">
               <a class="nav-link fs-4 py-1 text-center {% if this_day_symbol is defined and this_day_symbol == day_symbol %}active{% endif %}" href="{{ relative_path(absolute=bunch_abs_path, cwd=cwd) }}">{{ day['name_ja'] }}</a>
