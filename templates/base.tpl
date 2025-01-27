@@ -6,30 +6,33 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="robots" content="noindex">
-  <link rel="icon" href="{{ relative_path(absolute='/static/img/favicon.ico', cwd=cwd) }}" >
+  <link rel="icon" href="{{ relative_path(absolute='/static/img/favicon.ico', cwd=str_Cwd) }}" >
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha256-MBffSnbbXwHCuZtgPYiwMQbfE7z+GOZ7fBPCNB06Z98=" crossorigin="anonymous"> -->
-  <link href="{{ relative_path(absolute='/static/css/bootstrap_custom.css', cwd=cwd) }}" rel="stylesheet">
-  <link href="{{ relative_path(absolute='/static/css/bootstrap-icons.min.css', cwd=cwd) }}" rel="stylesheet">
-  <link href="{{ relative_path(absolute='/static/css/transition.css', cwd=cwd) }}" rel="stylesheet">
+  <link href="{{ relative_path(absolute='/static/css/bootstrap_custom.css', cwd=str_Cwd) }}" rel="stylesheet">
+  <link href="{{ relative_path(absolute='/static/css/bootstrap-icons.min.css', cwd=str_Cwd) }}" rel="stylesheet">
+  <link href="{{ relative_path(absolute='/static/css/transition.css', cwd=str_Cwd) }}" rel="stylesheet">
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
   <header class="sticky-top">
     <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{{ relative_path(absolute='/', cwd=cwd) }}">
-          <img src="{{ relative_path(absolute='/static/img/logo.svg', cwd=cwd) }}" width="200" alt="週7日本語 ロゴ">
+        <a class="navbar-brand" href="{{ relative_path(absolute='/', cwd=str_Cwd) }}">
+          <img src="{{ relative_path(absolute='/static/img/logo.svg', cwd=str_Cwd) }}" width="200" alt="週7日本語 ロゴ">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav pt-2">
-            {% for day_symbol, day in days.items() %}
-            {% set bunch_abs_path = '/bunch/' ~ day_symbol %} {# 引数absoluteに渡す変数bunch_abs_pathを設定 #}
+            {% for dct_Day in lst_Days %}
+            {% set int_DayId = loop.index0 %}
+            {# 注 特殊な変数loopに対してレシーバindex0を呼び出すことで0始まりの現在の繰り返し回数を取得できる #}
+            {#    参考 https://www.gesource.jp/weblog/?p=3527 #}
+            {% set str_BunchAbsPath = '/bunch/' ~ dct_Day['symbol'] %} {# 引数absoluteに渡す変数BunchAbsPathを設定 #}
             {# 注 `~`で文字列や数値を結合できる  #}
             <li class="nav-item light" style="font-weight: 700;">
-              <a class="nav-link fs-4 py-1 text-center {% if this_day_symbol is defined and this_day_symbol == day_symbol %}active{% endif %}" href="{{ relative_path(absolute=bunch_abs_path, cwd=cwd) }}">{{ day['name_ja'] }}</a>
+              <a class="nav-link fs-4 py-1 text-center {% if int_TargetDayId is defined and int_TargetDayId == int_DayId %}active{% endif %}" href="{{ relative_path(absolute=str_BunchAbsPath, cwd=str_Cwd) }}">{{ dct_Day['name_ja'] }}</a>
             </li>
             {% endfor %}
           </ul>
@@ -61,6 +64,6 @@
   </footer>
   
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha256-gvZPYrsDwbwYJLD5yeBfcNujPhRoGOY831wwbIzz3t0=" crossorigin="anonymous"></script> -->
-  <script src="{{ relative_path(absolute='/static/js/bootstrap.bundle.min.js', cwd=cwd) }}"></script>
+  <script src="{{ relative_path(absolute='/static/js/bootstrap.bundle.min.js', cwd=str_Cwd) }}"></script>
 </body>
 </html>
