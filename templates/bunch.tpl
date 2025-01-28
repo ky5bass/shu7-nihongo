@@ -10,21 +10,21 @@
       </p>
     </div>
   </div>
-  {% for dct_card in lst_Cards %}
+  {% for dct_Card in lst_Cards %}
   <section class="bg-secondary my-2 border-0 rounded-4 p-3 px-md-4" >
-    <a class="text-reset text-decoration-none px-0" data-bs-toggle="collapse" href="#card{{ dct_card['number'] }}" role="button" aria-expanded="false" aria-controls="card{{ dct_card['number'] }}">
+    <a class="text-reset text-decoration-none px-0" data-bs-toggle="collapse" href="#card{{ dct_Card['number'] }}" role="button" aria-expanded="false" aria-controls="card{{ dct_Card['number'] }}">
       <div class="container px-0 pt-0 pb-2">
         <div class="d-flex justify-content-between">
-          <div class="fs-6 px-1 border border-light border-1 rounded-2 my-auto">{{ dct_card['genre'] }}</div>
-          <div class="fs-7 p-0 pe-1 lh-sm">{{ dct_card['number'] }}</div>
+          <div class="fs-6 px-1 border border-light border-1 rounded-2 my-auto">{{ dct_Card['genre'] }}</div>
+          <div class="fs-7 p-0 pe-1 lh-sm">{{ dct_Card['number'] }}</div>
         </div>
       </div>
-      <div class="fs-3" style="font-family: 'YakuHanMPs', 'Noto Serif JP', serif; font-weight: 400;">{{ dct_card['question'] }}</div>
+      <div class="fs-3" style="font-family: 'YakuHanMPs', 'Noto Serif JP', serif; font-weight: 400;">{{ dct_Card['question'] }}</div>
     </a>
 
-    <div class="collapse px-0 fs-3" style="font-family: 'YakuHanMPs', 'Noto Serif JP', serif; font-weight: 400;" id="card{{ dct_card['number'] }}">
+    <div class="collapse px-0 fs-3" style="font-family: 'YakuHanMPs', 'Noto Serif JP', serif; font-weight: 400;" id="card{{ dct_Card['number'] }}">
       <hr class="my-2 bg-white"/>
-      {{ dct_card['answer'] }}
+      {{ dct_Card['answer'] }}
     </div>
   </section>
   {% endfor %}
