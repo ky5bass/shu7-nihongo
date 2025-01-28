@@ -70,6 +70,7 @@ def main():
     obj_env = Environment(loader=FileSystemLoader(obj_tplDirPath), trim_blocks=False)
     obj_env.globals['relative_path'] = relative_path    # テンプレにrelative_path関数を埋め込み
     # 参考 関数埋め込みの方法→ https://gist.github.com/snaka/2575718
+    obj_env.globals['lst_Days'] = lst_days              # テンプレにコンテクストとしてlst_Daysを渡す
 
     # 本日のdayIdを取得
     obj_now = _datetime.now() + timedelta(hours=+9)
@@ -79,7 +80,6 @@ def main():
     # トップページをレンダリング
     obj_template = obj_env.get_template('index.tpl')
     str_output = obj_template.render(int_TodayId=int_todayId,
-                                     lst_Days=lst_days,
                                      str_Cwd='/',)
     obj_outputPath = obj_distDirPath / 'index.html'
     with obj_outputPath.open('wt') as f:
@@ -105,9 +105,8 @@ def main():
         # bunchページをレンダリング
         obj_template = obj_env.get_template('bunch.tpl')
         str_output = obj_template.render(lst_Cards=lst_cards,
-                                         str_CreatedDate=str_date,
+                                         str_UpdatedDate=str_date,
                                          int_TargetDayId=int_dayId,
-                                         lst_Days=lst_days,
                                          str_Cwd='/bunch', )
         str_targetDaySymbol = dct_day['symbol']
         obj_outputPath = obj_distDirPath / f'bunch/{str_targetDaySymbol}/index.html'

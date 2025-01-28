@@ -6,7 +6,7 @@
       <h1 class="col-md-8 py-0 px-3 px-md-1 m-0 fw-bold text-nowrap" style="font-family: 'Montserrat', sans-serif; font-weight: 700;">{{ lst_Days[int_TargetDayId]['name_ja'] }}の束</h1>
       <p class="col-md-4 text-end pt-2 px-3 px-md-1 mt-auto mb-0">
         <i class="bi bi-arrow-repeat"></i>
-        {{ str_CreatedDate }}
+        {{ str_UpdatedDate }}
       </p>
     </div>
   </div>
