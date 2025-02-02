@@ -76,7 +76,8 @@ def main():
     # 本日のdayIdを取得
     objDtm_now = _datetime.now() + timedelta(hours=+9)
     # 注 9時間後にすることで日本時間に変換
-    int_TodayId = objDtm_now.weekday()     # 月曜=>0, ..., 日曜=>6
+    int_TodayId = (objDtm_now.weekday() + 1) % 7
+    # 注 <datetime object>.weekday() -> 0(月曜), ..., 6(日曜)
 
     # トップページをレンダリング
     objTemplate = objEnv.get_template('index.tpl')
