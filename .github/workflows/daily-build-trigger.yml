@@ -1,12 +1,13 @@
 name: Daily Build Trigger
 # Cloudflare Workersにおけるビルドを誘発する
 on:
-  # 定期実行
-  # 参考 https://qiita.com/cardene/items/67d31f13d27865a12ecf#設定
-  # 注 よく遅延するらしいので、気長に待とう
-  #    参考 https://zenn.dev/no4_dev/articles/14b295b8dafbfd
-  schedule:
-    - cron: '0 21 * * *'  # 日本時間AM6:00
+  # # 定期実行
+  # # 参考 https://qiita.com/cardene/items/67d31f13d27865a12ecf#設定
+  # # 注 よく遅延するらしいので、気長に待とう
+  # #    参考 https://zenn.dev/no4_dev/articles/14b295b8dafbfd
+  # schedule:
+  #   - cron: '0 21 * * *'  # 日本時間AM6:00
+  # [2026/06/13変更] shu7-nihongo-r2への移行のため無効化しました
 
   # 手動実行
   # 参考 https://qiita.com/chihiro/items/8b2918ceb709cb9079e8
